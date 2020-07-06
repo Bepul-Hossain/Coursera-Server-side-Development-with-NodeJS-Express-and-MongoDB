@@ -4,6 +4,8 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const dishRouter = require("./routes/dishRouter");
+const promosRouter = require('./routes/promoRouter')
+const leaderRouter= require('./routes/leaderRouter')
 
 const hostname = "localhost";
 const port = 3000;
@@ -15,6 +17,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 app.use("/dishes", dishRouter);
+app.use("/promotions",promosRouter)
+app.use("/leaders",leaderRouter)
 
 app.use((req, res, next) => {
   res.statusCode = 200;
