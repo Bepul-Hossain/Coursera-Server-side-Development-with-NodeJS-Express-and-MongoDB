@@ -8,7 +8,7 @@ var FileStore = require("session-file-store")(session);
 
 var passport = require("passport");
 var authenticate = require("./authenticate");
-var config = require('./config')
+var config = require("./config");
 
 const mongoose = require("mongoose");
 
@@ -33,6 +33,17 @@ const { use } = require("./routes/index");
 
 var app = express();
 
+// Secure traffic only
+app.all("*", (req, res, next) => {
+  if (req.secure) {
+    return next();
+  } else {
+    res.redirect(
+      "https://" + req.hostname + ":" + app.get("secPort") + req.url
+    );
+  }
+});
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -42,13 +53,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser("12345-67890-09876-54321"));
 
-
 app.use(passport.initialize());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
-
 
 app.use(express.static(path.join(__dirname, "public")));
 
