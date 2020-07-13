@@ -5,7 +5,7 @@
 ## Week 4: OpenSSL setting for windows 10 64 [video](https://www.youtube.com/watch?v=jSkQ27sTto0)
 Error
 ```
-PS E:\webdev\coursera\nodejs\coursera-nodejs\bin> openssl req -new -key private.key -out cert.csr -inform DER
+PS E:\webdev\coursera\nodejs\coursera-nodejs\bin> openssl req -new -key private.key -out cert.csr
 unable to load Private Key
 31100:error:0909006C:PEM routines:get_name:no start line:crypto\pem\pem_lib.c:745:Expecting: ANY PRIVATE KEY
 ```
