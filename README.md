@@ -3,7 +3,7 @@
 2. npm start
 
 ## Week 4: OpenSSL setting for windows 10 64 [video](https://www.youtube.com/watch?v=jSkQ27sTto0)
-** [image](public\images\openssl_problem_solve.png)
+** [image](public/images/openssl_problem_solve.png)
 ```
 PS E:\webdev\coursera\nodejs\coursera-nodejs\bin> openssl genrsa -out private.key
 PS E:\webdev\coursera\nodejs\coursera-nodejs\bin> openssl req -new -key private.key -out cert.csr
